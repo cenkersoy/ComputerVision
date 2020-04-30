@@ -1,9 +1,17 @@
+# This script will detect objects of a given color in your webcam.
+# Press 'q' to quit
+# USAGE
+# $ detect_colors.py --color {red, green, blue}
+#
+# if the command line is anything else, it detects all colors EXCEPT white
+
 # import required libraries
 import numpy as np
 import cv2
 
 import argparse
 
+# process command line arguments
 parser = argparse.ArgumentParser()
 parser.add_argument("--a", default=1, type=int, help="This is the 'a' variable")
 parser.add_argument("--color", 
@@ -14,6 +22,7 @@ args = parser.parse_args()
 
 color_to_detect = args.color
 
+# set the filter ranges based on the color
 if color_to_detect == "red":
     low_val = np.array([161, 155, 84])
     high_val = np.array([179, 255, 255])
@@ -42,7 +51,7 @@ while (True):
     image_mask = cv2.inRange(hsv, low_val, high_val)
     output = cv2.bitwise_and(frame, frame, mask = image_mask)
     
-    # display both the original feed and the detected (green)
+    # display both the original feed and the detected color
     cv2.imshow('Original', frame)
     cv2.imshow('Output', output)
     

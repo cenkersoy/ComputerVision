@@ -9,4 +9,5 @@ Machine Vision related work
 
 ![Color Detection] (https://github.com/cenkersoy/ComputerVision/blob/master/images/color_detection.JPG)
 - **detect_face.ipynb** - Uses Haar Cascades to detect faces in your webcam stream
+
 ![Face detection]  (https://github.com/cenkersoy/ComputerVision/blob/master/images/face_detection.JPG)
